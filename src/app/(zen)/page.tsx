@@ -1,28 +1,176 @@
 "use client";
-import Image from "next/image";
+
 import styles from "../page.module.css";
 import lottie from "lottie-web";
 import { useEffect, useRef } from "react";
 
-export default function HomeZenPage() {
-  const animationContainer = useRef(null);
+export default function HomeZenPage() { 
 
+  const animationBanner= useRef(null);
+  const animationBanner1300= useRef(null);
+  const animationBanner850= useRef(null);
+  const animationMindfulGuide= useRef(null);
+  const animationHabits= useRef(null);
+  const animationHabits850= useRef(null);
+  const animationHabits1300= useRef(null);
+  
   useEffect(() => {
     const animation = lottie.loadAnimation({
-      container: animationContainer.current as any,
+      container: animationBanner.current as any,
       renderer: "svg",
       loop: true,
       autoplay: true,
-      path: "/lotties/loading.json",
+      path: "/lotties/banner.json",
+    });
+    const animation1300 = lottie.loadAnimation({
+      container: animationBanner1300.current as any,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      path: "/lotties/banner_1300.json",
+    });
+    const animation850 = lottie.loadAnimation({
+      container: animationBanner850.current as any,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      path: "/lotties/banner_850.json",
     });
 
-    return () => animation.destroy();
+    const animation1 = lottie.loadAnimation({
+      container: animationMindfulGuide.current as any,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      path: "/lotties/mindfulguide.json",
+    });
+
+    const animation2 = lottie.loadAnimation({
+      container: animationHabits.current as any,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      path: "/lotties/habits1920.json",
+    });
+    const animation2_1300 = lottie.loadAnimation({
+      container: animationHabits1300.current as any,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      path: "/lotties/habits1300.json",
+    });
+    const animation2_850 = lottie.loadAnimation({
+      container: animationHabits850.current as any,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      path: "/lotties/habits850.json",
+    });
+    return () => {
+      animation.destroy();
+      animation1300.destroy();
+      animation850.destroy();
+      animation1.destroy();
+      animation2.destroy();
+      animation2_850.destroy();
+      animation2_1300.destroy();
+
+    }
   }, []);
 
   return (
-    <main className={styles.main}>
-      <h2>Loading Habit Zen</h2>
-      <div ref={animationContainer}></div>
-    </main>
+    <>
+      <main className={styles.main}>
+        
+        <div className={styles.divlogo}>
+          <img src="/img/logo.png" alt="" className={styles.logo} />
+        </div>
+
+        <div className={styles.divFondoAnimation}>
+          
+          <img src="/animations/logo_3D.gif" alt="" className={styles.logoAnimation}/>
+          <img src="/img/fondo-nubes.jpg" alt="" className={styles.sky1920} />
+          <img src="/img/fondo-nubes1300.jpg" alt="" className={styles.sky1300} />
+          <img src="/img/fondo-nubes850.jpg" alt="" className={styles.sky850} />
+        </div>
+        
+        <div ref={animationBanner} className={styles.banner}></div>
+        <div ref={animationBanner1300} className={styles.banner1300}></div>
+        <div ref={animationBanner850} className={styles.banner850}></div>
+
+        <div className={styles.calendar}>
+          <h2 className={styles.titles}>Calendar</h2>
+          <p className={styles.texts}>Explore the feature of the ninety-week calendar, where you can visualize your journey through each week of the year</p>
+          <img src="/img/plant_calendar_1.png" alt="" className={styles.plant_calendar_1}/>
+          <img src="/animations/calendar.gif" alt=""  className={styles.calendarGif}/>
+          <img src="/img/plant_calendar_2.png" alt="" className={styles.plant_calendar_2}/>
+
+        </div>
+
+        <div className={styles.mindfulguide}>
+          <div className={styles.centerMind}>
+            <h2 className={styles.titleMind}>MindfulGuide</h2>
+            <div ref={animationMindfulGuide} className={styles.animationMind}></div>
+          </div>
+
+          <div className={styles.textDiv}>
+            <p className={styles.textMind}>Welcome to <span className={styles.span}>MindfulGuide!</span> This section of our app is designed to provide you with personalized support and motivation on your journey to healthier and more balanced habits.</p>
+            <div className={styles.textMind2}>
+              <p className={styles.textMind1}>Process Tracking: MindfulGuide tracks your habits like exercise, nutrition, meditation, and sleep to monitor your progress and goal attainment.</p>
+              <p className={styles.textMind1}>Personalized Advice: MindfulGuide provides tailored tips to overcome obstacles and improve your habits based on your data.</p>
+              <p className={styles.textMind1}>Weekly Encouragement: MindfulGuide delivers weekly moticational messages to keep you inspired and focused on your wellness journey.</p> 
+              <img src="/img/plant_mindfulguide_.png" className={styles.plantMindfulguide} alt="" />
+            </div>
+          </div>
+
+        </div>
+
+        <div className={styles.habits}>
+          <h2 className={styles.titles}>Habits</h2>
+          <div ref={animationHabits} className={styles.habitsAnimation}></div>
+          <div ref={animationHabits1300} className={styles.habitsAnimation1300}></div>
+          <div ref={animationHabits850} className={styles.habitsAnimation850}></div>
+          <p className={styles.texts}>Take your habits to the next level</p>
+          <img src="/img/plant_4habit_.png" className={styles.habitPlant} alt="" />
+
+
+        </div>
+
+        <div className={styles.community}>
+          <h2 className={styles.titles}>Community</h2>
+
+          <p className={styles.texts}>Connect with friends, explore their habits, and comment on their posts</p>
+          <img src="/animations/community.gif" alt=""  className={styles.communityAnimation}/>
+          <img src="/img/plant_community_1.png" className={styles.communityPlant1} alt="" />
+          <img src="/img/plant_community_2.png" className={styles.communityPlant2} alt="" />
+
+
+        </div>
+
+        <div className={styles.video}>
+          <h2 className={styles.titles}>User Experience</h2>
+
+          {/* <video src="/videos/VideoExperience.mp4" controls className={styles.videoExperience}></video> */}
+          <iframe src="https://www.youtube.com/watch?v=mdXvMCJMNqw" className={styles.videoExperience} frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div className={styles.thanks}>
+          <button className={styles.thanksButton}><img src="/img/heart.png" alt="" className={styles.thanksHeart} />Support</button>
+          <img src="/img/donation_1.png" alt="" className={styles.thanksImg} />
+          <img src="/img/donation_1_mobile.png" alt="" className={styles.thanksImg850} />
+
+          <div className={styles.thanksbox}>
+            <p className={styles.texts}>Every contribution, even <span className={styles.span}>$1 USD</span> is valuable and helps us to continue developing and improving. <span className={styles.span}>Thank you for your support!</span> </p>
+            
+          </div>
+
+        </div>
+      
+      </main>
+
+      <footer className={styles.footer}>
+      </footer>
+
+    </>
   );
 }
