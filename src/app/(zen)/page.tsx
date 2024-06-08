@@ -8,11 +8,15 @@ export default function HomeZenPage() {
 
   const showUpcoming = () => {
     const upcomingElement = document.getElementById("upcoming");
-    upcomingElement.style.visibility = "visible"; // Mostrar el elemento
-    setTimeout(() => {
-        upcomingElement.style.visibility = "hidden"; // Ocultar el elemento después de 3 segundos
-    }, 3000);
-}
+    if (upcomingElement) {
+      upcomingElement.style.visibility = "visible";
+      setTimeout(() => {
+        upcomingElement!.style.visibility = "hidden"; 
+      }, 3000);
+    } else {
+      console.error("Element with id 'upcoming' not found.");
+    }
+  };
 
   const animationBanner= useRef(null);
   const animationBanner1300= useRef(null);
@@ -174,7 +178,7 @@ export default function HomeZenPage() {
           <button 
             onClick={showUpcoming}
             className={styles.thanksButton}><img src="/img/heart.png" alt="" className={styles.thanksHeart} />Support</button>
-          <img src="/img/donation_1.png" alt="" className={styles.thanksImg} />
+          <img src="/img/donation_1.png" alt="" className={styles.thanksImg} on/>
           <img src="/img/donation_1_mobile.png" alt="" className={styles.thanksImg850} />
 
           <div className={styles.thanksbox}>
