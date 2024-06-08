@@ -6,6 +6,14 @@ import { useEffect, useRef } from "react";
 
 export default function HomeZenPage() { 
 
+  const showUpcoming = () => {
+    const upcomingElement = document.getElementById("upcoming");
+    upcomingElement.style.visibility = "visible"; // Mostrar el elemento
+    setTimeout(() => {
+        upcomingElement.style.visibility = "hidden"; // Ocultar el elemento después de 3 segundos
+    }, 3000);
+}
+
   const animationBanner= useRef(null);
   const animationBanner1300= useRef(null);
   const animationBanner850= useRef(null);
@@ -118,7 +126,7 @@ export default function HomeZenPage() {
             <div className={styles.textMind2}>
               <p className={styles.textMind1}>Process Tracking: MindfulGuide tracks your habits like exercise, nutrition, meditation, and sleep to monitor your progress and goal attainment.</p>
               <p className={styles.textMind1}>Personalized Advice: MindfulGuide provides tailored tips to overcome obstacles and improve your habits based on your data.</p>
-              <p className={styles.textMind1}>Weekly Encouragement: MindfulGuide delivers weekly moticational messages to keep you inspired and focused on your wellness journey.</p> 
+              <p className={styles.textMind1}>Weekly Encouragement: MindfulGuide delivers weekly motivational messages to keep you inspired and focused on your wellness journey.</p> 
               <img src="/img/plant_mindfulguide_.png" className={styles.plantMindfulguide} alt="" />
             </div>
           </div>
@@ -149,13 +157,23 @@ export default function HomeZenPage() {
 
         <div className={styles.video}>
           <h2 className={styles.titles}>User Experience</h2>
-
-          {/* <video src="/videos/VideoExperience.mp4" controls className={styles.videoExperience}></video> */}
-          <iframe src="https://www.youtube.com/watch?v=mdXvMCJMNqw" className={styles.videoExperience} frameborder="0" allowfullscreen></iframe>
+          
+          <iframe
+            src="https://www.youtube.com/embed/mdXvMCJMNqw"
+            className={styles.videoExperience}
+            
+            allow="accelerometer; autoplay; clipboard-write;        encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+         
         </div>
 
         <div className={styles.thanks}>
-          <button className={styles.thanksButton}><img src="/img/heart.png" alt="" className={styles.thanksHeart} />Support</button>
+          <p id="upcoming" className={styles.upcoming}>Upcoming function</p>
+
+          <button 
+            onClick={showUpcoming}
+            className={styles.thanksButton}><img src="/img/heart.png" alt="" className={styles.thanksHeart} />Support</button>
           <img src="/img/donation_1.png" alt="" className={styles.thanksImg} />
           <img src="/img/donation_1_mobile.png" alt="" className={styles.thanksImg850} />
 
