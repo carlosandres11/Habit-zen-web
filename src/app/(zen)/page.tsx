@@ -178,7 +178,7 @@ export default function HomeZenPage() {
           <button 
             onClick={showUpcoming}
             className={styles.thanksButton}><img src="/img/heart.png" alt="" className={styles.thanksHeart} />Support</button>
-          <img src="/img/donation_1.png" alt="" className={styles.thanksImg} on/>
+          <img src="/img/donation_1.png" alt="" className={styles.thanksImg} />
           <img src="/img/donation_1_mobile.png" alt="" className={styles.thanksImg850} />
 
           <div className={styles.thanksbox}>
